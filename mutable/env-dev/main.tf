@@ -1,3 +1,4 @@
 module "main" {
-  source = "../"
+  source       = "../"
+  SERVER_COUNT = var.SERVER_COUNT
 }
