@@ -1,5 +1,5 @@
 help:
-	@echo Usage: make dev | make prod
+	@echo "Usage: make dev | make prod"
 
 dev:
 	rm -rf .terraform
