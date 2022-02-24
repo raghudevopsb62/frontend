@@ -12,6 +12,6 @@ module "ec2" {
 //  source = "git::https://github.com/raghudevopsb62/terraform-mutable-alb"
 //}
 
-output "EBS" {
-  value = module.ec2.EBS
-}
+//output "EBS" {
+//  value = module.ec2.EBS
+//}
