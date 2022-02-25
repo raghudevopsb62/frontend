@@ -8,6 +8,3 @@ module "ec2" {
   COMPONENT           = var.COMPONENT
 }
 
-module "alb" {
-  source = "git::https://github.com/raghudevopsb62/terraform-mutable-alb"
-}
