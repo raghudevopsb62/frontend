@@ -9,3 +9,6 @@ module "ec2" {
   ALB_ATTACH_TO       = "frontend"
 }
 
+output "ALL_TAG_IDS" {
+  value = module.ec2.ALL_TAG_IDS
+}
