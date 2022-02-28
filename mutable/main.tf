@@ -13,8 +13,8 @@ module "tags" {
   depends_on  = [module.ec2]
   count       = length(local.ALL_TAGS)
   source      = "git::https://github.com/raghudevopsb62/terraform-tags"
-  TAG_NAME    = lookup(element(module.ec2.ALL_TAGS, count.index), "name")
-  TAG_VALUE   = lookup(element(module.ec2.ALL_TAGS, count.index), "value")
+  TAG_NAME    = lookup(element(local.ALL_TAGS, count.index), "name")
+  TAG_VALUE   = lookup(element(local.ALL_TAGS, count.index), "value")
   RESOURCE_ID = module.ec2.ALL_TAG_IDS
 }
 
