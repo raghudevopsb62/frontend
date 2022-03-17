@@ -1,18 +1,29 @@
 module "ec2" {
-  source              = "git::https://github.com/raghudevopsb62/terraform-mutable-ec2"
+  source              = "./vendor/modules/ec2-mutable"
   SPOT_INSTANCE_COUNT = var.SPOT_INSTANCE_COUNT
   OD_INSTANCE_COUNT   = var.OD_INSTANCE_COUNT
   SPOT_INSTANCE_TYPE  = var.SPOT_INSTANCE_TYPE
   OD_INSTANCE_TYPE    = var.OD_INSTANCE_TYPE
   ENV                 = var.ENV
   COMPONENT           = var.COMPONENT
-  ALB_ATTACH_TO       = "frontend"
+  ALB_ATTACH_TO       = "backend"
   PORT                = var.PORT
   TRIGGER             = var.TRIGGER
+  APP_VERSION         = var.APP_VERSION
+}
+
+resource "null_resource" "sleep" {
+  depends_on = [module.ec2]
+  triggers = {
+    abc = timestamp()
+  }
+  provisioner "local-exec" {
+    command = "sleep 30"
+  }
 }
 
 module "tags" {
-  depends_on        = [module.ec2]
+  depends_on        = [null_resource.sleep]
   count             = length(local.ALL_TAGS)
   source            = "git::https://github.com/raghudevopsb62/terraform-tags"
   TAG_NAME          = lookup(element(local.ALL_TAGS, count.index), "name")

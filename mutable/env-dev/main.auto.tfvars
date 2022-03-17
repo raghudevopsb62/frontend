@@ -1,3 +1,0 @@
-COMPONENT = "frontend"
-ENV       = "dev"
-
