@@ -6,7 +6,7 @@ module "ec2" {
   OD_INSTANCE_TYPE    = var.OD_INSTANCE_TYPE
   ENV                 = var.ENV
   COMPONENT           = var.COMPONENT
-  ALB_ATTACH_TO       = "backend"
+  ALB_ATTACH_TO       = "frontend"
   PORT                = var.PORT
   TRIGGER             = var.TRIGGER
   APP_VERSION         = var.APP_VERSION
