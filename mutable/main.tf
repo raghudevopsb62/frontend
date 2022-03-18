@@ -33,6 +33,17 @@ module "tags" {
   ALL_TAG_IDS       = module.ec2.ALL_TAG_IDS
 }
 
+module "tags-monitor" {
+  depends_on        = [null_resource.sleep]
+  source            = "git::https://github.com/raghudevopsb62/terraform-tags"
+  TAG_NAME          = "Monitor"
+  TAG_VALUE         = "yes"
+  ENV               = var.ENV
+  RESOURCE_ID_COUNT = local.RESOURCE_ID_COUNT
+  ALL_TAG_IDS       = module.ec2.ALL_INSTANCE_IDS
+}
+
+
 locals {
   ALL_TAGS = [
     {
@@ -52,6 +63,6 @@ locals {
       value = "roboshop"
     }
   ]
-  RESOURCE_ID_COUNT = (var.OD_INSTANCE_COUNT * 2) + (var.SPOT_INSTANCE_COUNT * 3)
+  RESOURCE_ID_COUNT = (var.OD_INSTANCE_COUNT) + (var.SPOT_INSTANCE_COUNT)
 }
 
