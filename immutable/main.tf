@@ -10,6 +10,9 @@ module "ec2" {
   PORT                = var.PORT
   TRIGGER             = var.TRIGGER
   APP_VERSION         = var.APP_VERSION
+  ASG_DESIRED         = var.ASG_DESIRED
+  ASG_MIN             = var.ASG_MIN
+  ASG_MAX             = var.ASG_MAX
 }
 
 resource "null_resource" "sleep" {
