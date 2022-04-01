@@ -2,5 +2,6 @@
 env.COMPONENT="frontend"
 env.TYPE="nginx"
 //mutable_mainCI()
-immutable_mainCI()
+//immutable_mainCI()
+docker_mainCI()
 
