@@ -21,7 +21,7 @@ spec:
       - name: frontend
         image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/frontend:TAG
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -31,10 +31,11 @@ metadata:
     component: frontend
     project: roboshop
 spec:
+  type: LoadBalancer
   selector:
     component: frontend
     project: roboshop
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 80
