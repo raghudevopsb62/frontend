@@ -6,3 +6,5 @@ health:
   port: "80"
 service:
   type: LoadBalancer
+  containerPort: 80
+
