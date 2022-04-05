@@ -1,5 +1,7 @@
 componentName: frontend
 image:
   component: frontend
-
+health:
+  path: /health
+  port: 80
 
