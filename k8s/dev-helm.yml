@@ -3,5 +3,5 @@ image:
   component: frontend
 health:
   path: /health
-  port: 80
+  port: "80"
 
