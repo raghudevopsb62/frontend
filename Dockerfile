@@ -2,4 +2,4 @@ FROM    nginx
 RUN     rm -rf /usr/share/nginx/html/*
 COPY    static/ /usr/share/nginx/html/
 COPY    docker-rb.conf /etc/nginx/conf.d/default.conf
-COPY    nginx.conf /etc/nginx/nginx.conf
+COPY    nginx-docker.conf /etc/nginx/nginx.conf
